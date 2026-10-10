@@ -178,9 +178,13 @@ configurations
 
 androidComponents {
     onVariants(selector().withBuildType("debug")) { variant ->
-        variant.flavorName?.let { flavor -> variant.applicationId.set("com.geeksville.mesh.$flavor.debug") }
+        variant.applicationId.set("com.oscom.app")
     }
     onVariants { variant ->
+        variant.outputs.forEach { output ->
+            val abi = output.filters.firstOrNull { it.filterType.name == "ABI" }?.identifier
+            output.outputFileName.set(if (abi == null) "OSCOM.apk" else "OSCOM-$abi.apk")
+        }
         val generateLocaleConfig =
             tasks.register<GenerateLocaleConfigTask>(
                 "generate${variant.name.replaceFirstChar { it.uppercase() }}LocaleConfig",
