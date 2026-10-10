@@ -28,7 +28,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.weight
-import androidx.compose.foundation.pointerinput.pointerInput
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -121,7 +121,7 @@ fun MeshtasticNavigationSuite(
                             onDragEnd = {
                                 if (abs(dragDistance) >= 56f) {
                                     val destinations = TopLevelDestination.entries
-                                    val currentIndex = destinations.indexOf(topLevelDestination)
+                                    val currentIndex = topLevelDestination?.let(destinations::indexOf) ?: -1
                                     val nextIndex = (currentIndex + if (dragDistance < 0) 1 else -1)
                                         .coerceIn(0, destinations.lastIndex)
                                     if (currentIndex >= 0 && nextIndex != currentIndex) {
