@@ -27,13 +27,13 @@ import androidx.compose.ui.graphics.Color
  */
 internal object MapColors {
     /** Cluster bubbles and traceroute hop markers. */
-    val Slate = Color(0xFF2C2D3C)
+    val Slate = Color(0xFF252C27)
 
     /** Geofence zones and the currently selected track point — carried over from the OSMdroid map. */
     val Highlight = Color(0xFFFF8C00)
 
     /** A node the scanner heard itself. The same green the Google discovery map uses. */
-    val DiscoveryDirect = Color(0xFF4CAF50)
+    val DiscoveryDirect = Color(0xFF39F56A)
 
     /**
      * A node that reached the scanner through the mesh. Blue, as on the Google discovery map — the distinction is the
