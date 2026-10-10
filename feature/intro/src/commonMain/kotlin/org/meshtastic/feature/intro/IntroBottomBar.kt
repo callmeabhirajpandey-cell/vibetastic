@@ -18,7 +18,7 @@ package org.meshtastic.feature.intro
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -46,11 +46,11 @@ internal fun IntroBottomBar(
 ) {
     BottomAppBar(contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)) {
         if (showSkipButton) {
-            Button(onClick = onSkip) { Text(skipButtonText) }
+            Button(modifier = Modifier.weight(1f), onClick = onSkip) { Text(skipButtonText) }
         }
 
-        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        if (showSkipButton) Spacer(modifier = Modifier.width(12.dp))
 
-        Button(onClick = onConfigure) { Text(configureButtonText) }
+        Button(modifier = Modifier.weight(1f), onClick = onConfigure) { Text(configureButtonText) }
     }
 }
