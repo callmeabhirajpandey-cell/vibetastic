@@ -125,7 +125,7 @@ fun MeshtasticNavigationSuite(
                                 if (abs(dragDistance) >= 56f) {
                                     val destinations = TopLevelDestination.entries
                                     val currentIndex = topLevelDestination?.let(destinations::indexOf) ?: -1
-                                    val nextIndex = (currentIndex + if (dragDistance < 0) 1 else -1)
+                                    val nextIndex = (currentIndex + if (dragDistance < 0) -1 else 1)
                                         .coerceIn(0, destinations.lastIndex)
                                     if (currentIndex >= 0 && nextIndex != currentIndex) {
                                         handleNavigation(
