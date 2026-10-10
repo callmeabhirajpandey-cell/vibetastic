@@ -18,7 +18,6 @@
 
 package org.meshtastic.core.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MotionScheme.Companion.expressive
 import androidx.compose.material3.darkColorScheme
@@ -117,7 +116,7 @@ val unspecified_scheme = ColorFamily(Color.Unspecified, Color.Unspecified, Color
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     dynamicColor: Boolean = false,
     content:
     @Composable()
