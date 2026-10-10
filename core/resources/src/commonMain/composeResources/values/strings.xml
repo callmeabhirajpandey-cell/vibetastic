@@ -1120,7 +1120,7 @@
     <string name="mesh_beacon_targets">Broadcast targets</string>
     <string name="mesh_map_location">Mesh Map Location</string>
     <string name="mesh_map_location_description">Enables the blue location dot for your phone in the mesh map.</string>
-    <!-- MESHTASTIC -->
+    <!-- OSCOM notification channels (resource IDs retained for compatibility) -->
     <string name="meshtastic">OSCOM</string>
     <string name="meshtastic_alerts_notifications">Alert notifications</string>
     <string name="meshtastic_alerts_notifications_description">Critical alerts sent by nodes on the mesh.</string>
@@ -1253,7 +1253,7 @@
     <string name="navigate_into_label">Navigate Into</string>
     <string name="nearby_devices_permission">Nearby devices permission</string>
     <string name="need_hardware">Need Hardware?</string>
-    <string name="need_hardware_description">Meshtastic requires a compatible device. Our backers and partners offer ready-to-use hardware. Here are some of the most popular options.</string>
+    <string name="need_hardware_description">OSCOM works with compatible mesh radios. Hardware partners offer ready-to-use devices, including these popular options.</string>
     <string name="neighbor_info">Neighbor Info</string>
     <string name="neighbor_info_config">Neighbor Info Config</string>
     <string name="network">Network</string>
@@ -1367,8 +1367,8 @@
     <!-- NOTIFICATION -->
     <string name="notification_group_mesh">Mesh</string>
     <string name="notification_permission_blocked_notice">Notifications are turned off and Android will not ask again. Turn them on in app settings to hear about new messages and alerts.</string>
-    <string name="notification_permission_denied_notice">Without notifications, Meshtastic cannot alert you to new messages, new nodes, or a low battery while the app is in the background.</string>
-    <string name="notification_permission_rationale">Notifications are how Meshtastic reaches you when the app is not open: new messages, newly discovered nodes, and a radio running low on battery. Nothing else changes if you decline.</string>
+    <string name="notification_permission_denied_notice">Without notifications, OSCOM cannot alert you to new messages, new nodes, or a low battery while the app is in the background.</string>
+    <string name="notification_permission_rationale">Notifications are how OSCOM reaches you when the app is not open: new messages, newly discovered nodes, and a radio running low on battery. Nothing else changes if you decline.</string>
     <string name="notification_permissions_description">OSCOM uses notifications to keep you updated on new messages and other important events. You can update your notification permissions at any time from settings.</string>
     <string name="notification_reaction_to">%1$s to “%2$s”</string>
     <!-- NOTIFICATIONS -->
