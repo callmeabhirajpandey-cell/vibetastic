@@ -27,7 +27,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.weight
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -48,7 +47,6 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.input.pointer.consume
 import kotlin.math.abs
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
