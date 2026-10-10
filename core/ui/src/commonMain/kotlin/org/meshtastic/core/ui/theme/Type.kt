@@ -41,7 +41,7 @@ val AppTypography =
             titleMedium = base.titleMedium.copy(fontFamily = mono),
             titleSmall = base.titleSmall.copy(fontFamily = mono),
             bodyLarge = base.bodyLarge.copy(fontFamily = mono, fontSize = 16.sp, lineHeight = 24.sp, letterSpacing = 0.5.sp),
-            bodyMedium = base.bodyMedium.copy(fontFamily = mono, fontSize = 16.sp, lineHeight = 22.sp, letterSpacing = 0.25.sp),
+            bodyMedium = base.bodyMedium.copy(fontFamily = mono),
             bodySmall = base.bodySmall.copy(fontFamily = mono),
             labelLarge = base.labelLarge.copy(fontFamily = mono),
             labelMedium = base.labelMedium.copy(fontFamily = mono),
