@@ -55,7 +55,7 @@ object Basemaps {
         Basemap.Vector(id = "liberty", label = "Liberty", styleUri = "https://tiles.openfreemap.org/styles/liberty")
 
     val Positron =
-        Basemap.Vector(id = "positron", label = "Positron", styleUri = "https://tiles.openfreemap.org/styles/positron")
+        Basemap.Vector(id = "positron", label = "Grey", styleUri = "https://tiles.openfreemap.org/styles/positron")
 
     val Dark = Basemap.Vector(id = "dark", label = "Dark", styleUri = "https://tiles.openfreemap.org/styles/dark")
 
@@ -66,7 +66,7 @@ object Basemaps {
     /** Menu order: vector styles first, then the raster carry-overs. */
     val all: List<Basemap> = listOf(Liberty, Positron, Dark) + catalogueRasters
 
-    val default: Basemap = Liberty
+    val default: Basemap = Positron
 
     fun byId(id: String?): Basemap = all.firstOrNull { it.id == id } ?: default
 }
