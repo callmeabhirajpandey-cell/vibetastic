@@ -19,7 +19,7 @@
 package org.meshtastic.core.ui.theme
 
 import androidx.compose.material3.MaterialExpressiveTheme
-import androidx.compose.material3.MotionScheme.Companion.expressive
+import androidx.compose.material3.MotionScheme.Companion.standard
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -152,7 +152,7 @@ fun AppTheme(
         }
     }
 
-    MaterialExpressiveTheme(colorScheme = colorScheme, typography = typography, motionScheme = expressive()) {
+    MaterialExpressiveTheme(colorScheme = colorScheme, typography = typography, motionScheme = standard()) {
         content()
     }
 }
