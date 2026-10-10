@@ -131,7 +131,7 @@ fun MeshtasticNavigationSuite(
                                     val nextIndex = (currentIndex + if (dragDistance < 0) -1 else 1)
                                         .coerceIn(0, destinations.lastIndex)
                                     if (currentIndex >= 0 && nextIndex != currentIndex) {
-                                        hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                        hapticFeedback.performHapticFeedback(HapticFeedbackType.LongPress)
                                         handleNavigation(
                                             destinations[nextIndex],
                                             topLevelDestination,
@@ -151,7 +151,7 @@ fun MeshtasticNavigationSuite(
                     NavigationBarItem(
                         selected = isSelected,
                         onClick = {
-                            hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                            hapticFeedback.performHapticFeedback(HapticFeedbackType.LongPress)
                             handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
                         },
                         icon = {
@@ -189,7 +189,7 @@ fun MeshtasticNavigationSuite(
                     item(
                         selected = isSelected,
                         onClick = {
-                            hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                            hapticFeedback.performHapticFeedback(HapticFeedbackType.LongPress)
                             handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
                         },
                         icon = {
