@@ -21,6 +21,7 @@ import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.animation.core.FiniteAnimationSpec
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -158,7 +159,8 @@ private fun MeshtasticNavDisplayHost(
         )
 
     // Fades are alpha, not movement, so they follow the theme's effects spec rather than a spatial one.
-    val fadeSpec = MaterialTheme.motionScheme.defaultEffectsSpec<Float>()
+    // Keep navigation responsive: short fades avoid the sluggish feel of the default motion scheme.
+    val fadeSpec = tween<Float>(durationMillis = 90)
 
     // No screen declares shared elements; NavDisplay itself uses this scope to animate an entry that moves between
     // scenes, such as a detail going from a single pane to the list-detail split on resize.
