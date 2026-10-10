@@ -189,6 +189,7 @@ fun MeshtasticNavigationSuite(
                     item(
                         selected = isSelected,
                         onClick = {
+                            hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                             handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
                         },
                         icon = {
