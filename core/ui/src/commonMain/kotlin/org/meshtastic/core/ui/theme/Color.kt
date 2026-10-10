@@ -18,10 +18,8 @@ package org.meshtastic.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// ─── Meshtastic Design Standards v1.3 ───
-// Primary: Green 700 #2D8F52 | Secondary: Neutral 600 #555668
-// Tertiary: Blue 700 #2855A8 | Neutral: #2C2D3C | Neutral Variant: #303245
-// See: standards/meshtastic_design_standards_v1_3.md §8
+// ─── OSCOM dark charcoal + neon green palette ───
+// Dark surfaces stay near-black; neon green marks selected and actionable elements.
 
 // ─── Light Scheme (§8.2) ───
 val primaryLight = Color(0xFF2D8F52) // Green 700
@@ -61,38 +59,38 @@ val surfaceContainerHighLight = Color(0xFFE0E1EB) // Interpolated 100↔200
 val surfaceContainerHighestLight = Color(0xFFD5D6E0) // Neutral 200
 
 // ─── Dark Scheme (§8.3) ───
-val primaryDark = Color(0xFF67EA94) // Green 500
-val onPrimaryDark = Color(0xFF0F1017) // Neutral 950
-val primaryContainerDark = Color(0xFF2D8F52) // Green 700
-val onPrimaryContainerDark = Color(0xFFB5F5CE) // Green 300
-val secondaryDark = Color(0xFFB8BAC8) // Neutral 300
-val onSecondaryDark = Color(0xFF1A1B26) // Neutral 900
-val secondaryContainerDark = Color(0xFF3D3E50) // Neutral 700
-val onSecondaryContainerDark = Color(0xFFD5D6E0) // Neutral 200
-val tertiaryDark = Color(0xFFB0BFF0) // Blue 300
-val onTertiaryDark = Color(0xFF001849) // Blue 950
-val tertiaryContainerDark = Color(0xFF2855A8) // Blue 700
-val onTertiaryContainerDark = Color(0xFFE8EAF6) // Blue 50
+val primaryDark = Color(0xFF39F56A)
+val onPrimaryDark = Color(0xFF061008)
+val primaryContainerDark = Color(0xFF164A25)
+val onPrimaryContainerDark = Color(0xFFD0FFD9)
+val secondaryDark = Color(0xFFA6B0A8)
+val onSecondaryDark = Color(0xFF111412)
+val secondaryContainerDark = Color(0xFF252C27)
+val onSecondaryContainerDark = Color(0xFFE0E8E1)
+val tertiaryDark = Color(0xFF9AA8A0)
+val onTertiaryDark = Color(0xFF0B0D0C)
+val tertiaryContainerDark = Color(0xFF303A33)
+val onTertiaryContainerDark = Color(0xFFDCE7DF)
 val errorDark = Color(0xFFFFB4AB) // Error 300
 val onErrorDark = Color(0xFF690005) // Error 800
 val errorContainerDark = Color(0xFF93000A) // Error 700
 val onErrorContainerDark = Color(0xFFFDEAEA) // Error 100
-val backgroundDark = Color(0xFF1A1B26) // Neutral 900
-val onBackgroundDark = Color(0xFFECEDF3) // Neutral 100
-val surfaceDark = Color(0xFF1A1B26) // Neutral 900
-val onSurfaceDark = Color(0xFFECEDF3) // Neutral 100
-val surfaceVariantDark = Color(0xFF444660) // NV 700
-val onSurfaceVariantDark = Color(0xFFBDBFCF) // NV 300
-val outlineDark = Color(0xFF767892) // NV 500
-val outlineVariantDark = Color(0xFF444660) // NV 700
+val backgroundDark = Color(0xFF0B0D0C)
+val onBackgroundDark = Color(0xFFE7F0E9)
+val surfaceDark = Color(0xFF111412)
+val onSurfaceDark = Color(0xFFE7F0E9)
+val surfaceVariantDark = Color(0xFF252D28)
+val onSurfaceVariantDark = Color(0xFFA9B6AC)
+val outlineDark = Color(0xFF647168)
+val outlineVariantDark = Color(0xFF39433C)
 val scrimDark = Color(0xFF000000)
-val inverseSurfaceDark = Color(0xFFECEDF3) // Neutral 100
-val inverseOnSurfaceDark = Color(0xFF2C2D3C) // Neutral 800
-val inversePrimaryDark = Color(0xFF2D8F52) // Green 700
-val surfaceDimDark = Color(0xFF0F1017) // Neutral 950
-val surfaceBrightDark = Color(0xFF3D3E50) // Neutral 700
-val surfaceContainerLowestDark = Color(0xFF0F1017) // Neutral 950
-val surfaceContainerLowDark = Color(0xFF1A1B26) // Neutral 900
-val surfaceContainerDark = Color(0xFF242533) // Interpolated 900↔800
-val surfaceContainerHighDark = Color(0xFF2C2D3C) // Neutral 800
-val surfaceContainerHighestDark = Color(0xFF3D3E50) // Neutral 700
+val inverseSurfaceDark = Color(0xFFE7F0E9)
+val inverseOnSurfaceDark = Color(0xFF111412)
+val inversePrimaryDark = Color(0xFF237A3A)
+val surfaceDimDark = Color(0xFF080A09)
+val surfaceBrightDark = Color(0xFF303832)
+val surfaceContainerLowestDark = Color(0xFF080A09)
+val surfaceContainerLowDark = Color(0xFF111412)
+val surfaceContainerDark = Color(0xFF171B18)
+val surfaceContainerHighDark = Color(0xFF1D231F)
+val surfaceContainerHighestDark = Color(0xFF252C27)
