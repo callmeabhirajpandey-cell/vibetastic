@@ -28,6 +28,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -97,6 +99,7 @@ fun MeshtasticNavigationSuite(
     val selectedDevice by uiViewModel.currentDeviceAddressFlow.collectAsStateWithLifecycle()
 
     val adaptiveInfo = currentWindowAdaptiveInfoV2()
+    val hapticFeedback = LocalHapticFeedback.current
 
     val currentTabRoute = multiBackstack.currentTabRoute
     val topLevelDestination = TopLevelDestination.fromNavKey(currentTabRoute)
@@ -128,6 +131,7 @@ fun MeshtasticNavigationSuite(
                                     val nextIndex = (currentIndex + if (dragDistance < 0) -1 else 1)
                                         .coerceIn(0, destinations.lastIndex)
                                     if (currentIndex >= 0 && nextIndex != currentIndex) {
+                                        hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                                         handleNavigation(
                                             destinations[nextIndex],
                                             topLevelDestination,
@@ -147,6 +151,7 @@ fun MeshtasticNavigationSuite(
                     NavigationBarItem(
                         selected = isSelected,
                         onClick = {
+                            hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                             handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
                         },
                         icon = {
