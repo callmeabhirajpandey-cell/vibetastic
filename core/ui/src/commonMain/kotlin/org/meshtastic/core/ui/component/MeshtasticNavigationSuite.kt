@@ -22,13 +22,21 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.weight
+import androidx.compose.foundation.pointerinput.pointerInput
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
@@ -40,6 +48,8 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.input.pointer.consume
+import kotlin.math.abs
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -94,38 +104,97 @@ fun MeshtasticNavigationSuite(
     val layoutType = NavigationSuiteScaffoldDefaults.calculateFromAdaptiveInfo(adaptiveInfo).coerceNavigationType()
     val showLabels = layoutType == NavigationSuiteType.NavigationRail
 
-    NavigationSuiteScaffold(
-        modifier = modifier,
-        layoutType = layoutType,
-        navigationSuiteItems = {
-            TopLevelDestination.entries.forEach { destination ->
-                val isSelected = destination == topLevelDestination
-                item(
-                    selected = isSelected,
-                    onClick = { handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel) },
-                    icon = {
-                        NavigationIconContent(
-                            destination = destination,
-                            isSelected = isSelected,
-                            connectionState = connectionState,
-                            nodeRestartExpected = nodeRestartExpected,
-                            watchdogReconnectInFlight = watchdogReconnectInFlight,
-                            unreadMessageCount = unreadMessageCount,
-                            selectedDevice = selectedDevice,
-                            meshActivityFlow = uiViewModel.meshActivity,
+    if (layoutType == NavigationSuiteType.NavigationBar) {
+        // On phones, keep swipe gestures confined to the navigation bar so map and chat gestures remain untouched.
+        Column(modifier = modifier.fillMaxSize()) {
+            Row(modifier = Modifier.weight(1f)) { content() }
+            NavigationBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .pointerInput(topLevelDestination) {
+                        var dragDistance = 0f
+                        detectHorizontalDragGestures(
+                            onHorizontalDrag = { change, amount ->
+                                change.consume()
+                                dragDistance += amount
+                            },
+                            onDragEnd = {
+                                if (abs(dragDistance) >= 56f) {
+                                    val destinations = TopLevelDestination.entries
+                                    val currentIndex = destinations.indexOf(topLevelDestination)
+                                    val nextIndex = (currentIndex + if (dragDistance < 0) 1 else -1)
+                                        .coerceIn(0, destinations.lastIndex)
+                                    if (currentIndex >= 0 && nextIndex != currentIndex) {
+                                        handleNavigation(
+                                            destinations[nextIndex],
+                                            topLevelDestination,
+                                            multiBackstack,
+                                            uiViewModel,
+                                        )
+                                    }
+                                }
+                                dragDistance = 0f
+                            },
+                            onDragCancel = { dragDistance = 0f },
                         )
                     },
-                    label =
-                    if (showLabels) {
-                        { Text(stringResource(destination.label)) }
-                    } else {
-                        null
-                    },
-                )
+            ) {
+                TopLevelDestination.entries.forEach { destination ->
+                    val isSelected = destination == topLevelDestination
+                    NavigationBarItem(
+                        selected = isSelected,
+                        onClick = {
+                            handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
+                        },
+                        icon = {
+                            NavigationIconContent(
+                                destination = destination,
+                                isSelected = isSelected,
+                                connectionState = connectionState,
+                                nodeRestartExpected = nodeRestartExpected,
+                                watchdogReconnectInFlight = watchdogReconnectInFlight,
+                                unreadMessageCount = unreadMessageCount,
+                                selectedDevice = selectedDevice,
+                                meshActivityFlow = uiViewModel.meshActivity,
+                            )
+                        },
+                        label = { Text(stringResource(destination.label)) },
+                        alwaysShowLabel = false,
+                    )
+                }
             }
-        },
-    ) {
-        Row { content() }
+        }
+    } else {
+        NavigationSuiteScaffold(
+            modifier = modifier,
+            layoutType = layoutType,
+            navigationSuiteItems = {
+                TopLevelDestination.entries.forEach { destination ->
+                    val isSelected = destination == topLevelDestination
+                    item(
+                        selected = isSelected,
+                        onClick = {
+                            handleNavigation(destination, topLevelDestination, multiBackstack, uiViewModel)
+                        },
+                        icon = {
+                            NavigationIconContent(
+                                destination = destination,
+                                isSelected = isSelected,
+                                connectionState = connectionState,
+                                nodeRestartExpected = nodeRestartExpected,
+                                watchdogReconnectInFlight = watchdogReconnectInFlight,
+                                unreadMessageCount = unreadMessageCount,
+                                selectedDevice = selectedDevice,
+                                meshActivityFlow = uiViewModel.meshActivity,
+                            )
+                        },
+                        label = { Text(stringResource(destination.label)) },
+                    )
+                }
+            },
+        ) {
+            Row { content() }
+        }
     }
 }
 
