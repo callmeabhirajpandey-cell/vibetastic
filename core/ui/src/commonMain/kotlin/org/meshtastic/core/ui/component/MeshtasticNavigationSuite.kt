@@ -161,8 +161,8 @@ fun MeshtasticNavigationSuite(
                                 meshActivityFlow = uiViewModel.meshActivity,
                             )
                         },
-                        label = { Text(stringResource(destination.label), maxLines = 1) },
-                        alwaysShowLabel = true,
+                        label = null,
+                        alwaysShowLabel = false,
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = colorScheme.primary,
                             selectedTextColor = colorScheme.primary,
