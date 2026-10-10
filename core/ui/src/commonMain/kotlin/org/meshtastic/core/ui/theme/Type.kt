@@ -31,10 +31,9 @@ import androidx.compose.ui.unit.sp
  */
 val AppTypography =
     Typography(
-        defaultFontFamily = FontFamily.Monospace,
         bodyLarge =
         TextStyle(
-            fontFamily = FontFamily.Default,
+            fontFamily = FontFamily.Monospace,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             lineHeight = 24.sp,
