@@ -44,7 +44,7 @@ internal fun IntroBottomBar(
     configureButtonText: String,
     showSkipButton: Boolean = true,
 ) {
-    BottomAppBar(contentPadding = PaddingValues(horizontal = 16.dp, vertical = 20.dp)) {
+    BottomAppBar(contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)) {
         if (showSkipButton) {
             Button(onClick = onSkip) { Text(skipButtonText) }
         }
