@@ -30,21 +30,23 @@ import androidx.compose.ui.unit.sp
  * styles.
  */
 val AppTypography =
-    Typography(
-        bodyLarge =
-        TextStyle(
-            fontFamily = FontFamily.Monospace,
-            fontWeight = FontWeight.Normal,
-            fontSize = 16.sp,
-            lineHeight = 24.sp,
-            letterSpacing = 0.5.sp,
-        ),
-        bodyMedium =
-        TextStyle(
-            fontFamily = FontFamily.Default,
-            fontWeight = FontWeight.Normal,
-            fontSize = 16.sp,
-            lineHeight = 22.sp,
-            letterSpacing = 0.25.sp,
-        ),
-    )
+    Typography().let { base ->
+        val mono = FontFamily.Monospace
+        base.copy(
+            displayLarge = base.displayLarge.copy(fontFamily = mono),
+            displayMedium = base.displayMedium.copy(fontFamily = mono),
+            displaySmall = base.displaySmall.copy(fontFamily = mono),
+            headlineLarge = base.headlineLarge.copy(fontFamily = mono),
+            headlineMedium = base.headlineMedium.copy(fontFamily = mono),
+            headlineSmall = base.headlineSmall.copy(fontFamily = mono),
+            titleLarge = base.titleLarge.copy(fontFamily = mono),
+            titleMedium = base.titleMedium.copy(fontFamily = mono),
+            titleSmall = base.titleSmall.copy(fontFamily = mono),
+            bodyLarge = base.bodyLarge.copy(fontFamily = mono, fontSize = 16.sp, lineHeight = 24.sp, letterSpacing = 0.5.sp),
+            bodyMedium = base.bodyMedium.copy(fontFamily = mono, fontSize = 16.sp, lineHeight = 22.sp, letterSpacing = 0.25.sp),
+            bodySmall = base.bodySmall.copy(fontFamily = mono),
+            labelLarge = base.labelLarge.copy(fontFamily = mono),
+            labelMedium = base.labelMedium.copy(fontFamily = mono),
+            labelSmall = base.labelSmall.copy(fontFamily = mono),
+        )
+    }
